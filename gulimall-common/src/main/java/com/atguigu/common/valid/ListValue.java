@@ -12,13 +12,13 @@ import java.lang.annotation.*;
  **/
 @Documented
 @Constraint(
-        validatedBy = {}
+        validatedBy = {ListValueConstraintValidator.class}
 )
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ListValue {
 
-    String message() default "{javax.validation.constraints.NotEmpty.message}";
+    String message() default "{com.atguigu.common.valid.ListValue.message}";
 
     Class<?>[] groups() default {};
 

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.atguigu.common.valid.AddGroup;
 import com.atguigu.common.valid.UpdateGroup;
+import com.atguigu.common.valid.UpdateStatusGroup;
 import com.atguigu.gulimall.product.service.impl.BrandServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -92,6 +93,15 @@ public class BrandController {
     public R update(@Validated({UpdateGroup.class}) @RequestBody BrandEntity brand){
 
 		brandService.updateById(brand);
+
+        return R.ok();
+    }
+
+    @RequestMapping("/update/status")
+    //@RequiresPermissions("product:brand:update")
+    public R updateStatus(@Validated({UpdateStatusGroup.class}) @RequestBody BrandEntity brand){
+
+        brandService.updateById(brand);
 
         return R.ok();
     }
